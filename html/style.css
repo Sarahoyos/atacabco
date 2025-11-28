@@ -1,0 +1,659 @@
+@font-face{
+    font-family: 'PlaywriteUSTrad';
+    src:url(./fonts/Playwrite_US_Trad/PlaywriteUSTrad-VariableFont_wght.ttf)
+}
+@font-face {
+    font-family: 'RobotoMono';
+    src: url(./fonts/RobotoMono-VariableFont_wght.ttf);
+}
+@font-face {
+    font-family: 'OpenSans';
+    src: url(./fonts/OpenSans-VariableFont_wdth\,wght.ttf);
+}
+/* Icon styling for social media and navigation */
+.icon {
+    margin-right: 5px;
+    font-size: 1.2em;
+    vertical-align: middle;
+}
+
+.social-icon {
+    font-size: 1.5em;
+    margin-right: 8px;
+    transition: color 0.3s ease;
+}
+
+.social-icon:hover {
+    color: #BEAD92;
+}
+
+/* Example of styling specific icons */
+.fa-instagram {
+    background: -webkit-linear-gradient(#833AB4, #ffffff, #F77737);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+
+.fa-youtube {
+    color: #FF0000;
+}
+
+
+
+.fa-whatsapp {
+    color: #25D366;
+}
+
+.fa-envelope {
+    color: #668AA6;
+}
+
+.fa-facebook {
+    color: #3b5998;
+}
+
+/* Fix for oversized logo */
+.logo {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 20px;
+}
+
+.logo img{
+    width: 80px; /* Strictly control the logo size */
+    height: 80px; /* Add height constraint to maintain aspect ratio */
+    border-radius: 60%;
+    box-shadow: 0 0 10px rgba(215, 217, 195, 0.1);
+    margin: 10px;
+    transition: transform 0.3s ease;
+    max-width: 80px; /* Add maximum width constraint */
+    object-fit: cover; /* Ensure the image fits properly */
+}
+
+nav{
+    background: linear-gradient(to right, #C5AA2E, #C5AA2E), linear-gradient(to left, #dad9d2, #dad9d2);
+    text-align: center;
+    padding: 10px;
+    /* display: flex; */
+    justify-content: right;
+    align-items: right;
+    gap: 20px;
+    
+}
+nav a {
+    color: white;
+    text-decoration: none;
+    font-family: 'OpenSans', sans-serif;
+    font-size: 12px;
+    padding: 10px 20px;
+    margin-top: auto;
+    transform: scale(1);
+    transition: transform 0.3s ease;
+
+    
+}
+.contacto{
+    background-color: #E1CFBA; /* Updated to match the theme */
+    color: white; /* Text color for better contrast */
+    border-radius: 20px; /* Softer rounded corners */
+    padding: 10px 20px; /* Adds spacing inside the button */
+    font-family: 'RobotoMono', monospace; /* Matches the font style */
+    font-size: 10px; /* Slightly larger font for better readability */
+    text-align: center; /* Centers the text */
+    text-decoration: none; /* Removes underline if it's a link */
+    display: inline-block; /* Ensures proper button behavior */
+    margin-top: 20px; /* Adds spacing above the button */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
+    transition: all 0.3s ease; /* Smooth transition for hover effects */
+
+    
+}
+.desarollo{
+    text-align: left;
+    font-size: 10px;
+    margin-top: 5px;
+}
+
+.contacto:hover {
+    background-color: #3ea365; /* Darkens the button on hover */
+    transform: scale(1.05); /* Slightly enlarges the button */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* Enhances the shadow */
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    overflow-x: hidden; /* Prevent horizontal scrolling on mobile */
+}
+/* footer design - restructured layout */
+footer {
+    padding: 20px 0 60px; /* Add bottom padding for copyright space */
+    display: flex;
+    flex-wrap: wrap;
+    min-height: 20vh;
+    color: white;
+    margin-top: auto;
+    width: 100%;
+    background: linear-gradient(to right, #C5AA2E, #C5AA2E), linear-gradient(to left, #dad9d2, #dad9d2);
+    position: relative;
+    justify-content: center;
+}
+
+/* Left align social media links */
+footer .insta, 
+footer .youtube, 
+footer .whatsapp, 
+footer .correo, 
+footer .facebook {
+    display: inline-block;
+    margin: 10px;
+    text-align: center;
+}
+
+/* Center the social media group */
+footer div:not(.logofooter):not(.rights):not(.desarollo):not(.contactofooter) {
+    display: inline-block;
+    margin: 5px;
+}
+
+/* Put logo on the left side */
+.logofooter {
+    position: absolute;
+    left: 20px;
+    top: 20px;
+}
+
+.logofooter img {
+    width: 80px;
+    height: 80px;
+    max-width: 80px;
+    border-radius: 60%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+    transition: transform 0.3s ease;
+    object-fit: cover;
+}
+
+/* Position slogan below the logo */
+#slogan {
+    position: absolute;
+    left: 20px;
+    top: 110px; /* Adjusted to be directly below the logo */
+    font-family: 'PlaywriteUSTrad';
+    font-size: 12px;
+    color: white;
+    margin-top: 5px;
+    text-align: left;
+}
+
+/* Put contact button below the slogan */
+.contactofooter {
+    position: absolute;
+    left: 20px;
+    top: 140px; /* Adjusted to be directly below the slogan */
+    background-color: #BEAD92;
+    color: white;
+    border-radius: 20px;
+    padding: 10px 20px;
+    font-family: 'OpenSans', sans-serif;
+    font-size: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.contactofooter a {
+    color: white;
+    text-decoration: none;
+    font-family: 'OpenSans', sans-serif;
+}
+
+.contactofooter:hover {
+    background-color: #597891;
+    transform: scale(1.05);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Bottom left for copyright */
+.rights, .desarollo {
+    position: relative; /* Changed from absolute to relative for better stacking */
+    width: 100%;
+    text-align: center; /* Center align on all screen sizes */
+    padding: 5px 10px;
+    font-size: 10px;
+    margin-top: 10px;
+
+    clear: both; /* Ensure they clear any floated elements */
+}
+
+
+.rights {
+    position: absolute;
+    bottom: 5px;
+    left: 20px;
+    font-size: 10px;
+    width: 60%;
+    text-align: left;
+    font-family: 'PlaywriteUSTrad'; /* Updated font-family */
+}
+
+/* Removed empty ruleset */
+#imagen-fondo img{
+    width: 50%;
+    height: auto;
+
+
+}
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    footer {
+        padding: 20px 0 60px; /* More space for stacked copyright */
+        padding-top: 150px; /* Space for logo and contact button */
+    }
+    
+    .logofooter {
+        position: absolute;
+        left: 50%;
+        top: 20px;
+        transform: translateX(-50%);
+        text-align: center;
+    }
+    
+    #slogan {
+        position: absolute;
+        left: 50%;
+        top: 110px;
+        transform: translateX(-50%);
+        text-align: center;
+    }
+    
+    .contactofooter {
+        position: absolute;
+        left: 60%;
+        top: 140px;
+        transform: translateX(-50%);
+        text-align: center;
+    }
+    
+    .rights, .desarollo {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* Footer mobile responsiveness fixes */
+
+@media screen and (max-width: 768px) {
+  /* More comprehensive footer fixes */
+  footer {
+    padding-top: 180px; /* Increased from 150px to give more space for logo and contact button */
+    padding-bottom: 120px; /* More space for stacked links and copyright */
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /* Make footer links stack vertically with proper spacing */
+  footer .insta, 
+  footer .youtube, 
+  footer .whatsapp, 
+  footer .correo, 
+  footer .facebook {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin: 8px 0;
+  }
+  
+  /* Center-align all footer links */
+  footer div:not(.logofooter):not(.rights):not(.desarollo):not(.contactofooter) {
+    margin: 5px 0;
+  }
+  
+  /* Position logo at the top center */
+  .logofooter {
+    position: absolute;
+    left: 50%;
+    top: 20px;
+    transform: translateX(-50%);
+    width: 80px;
+    text-align: center;
+  }
+  
+  /* Position contact button below the logo with more space */
+  .contactofooter {
+    position: absolute;
+    left: 50%;
+    top: 140px; /* Adjusted to be directly below the slogan */
+    transform: translateX(-50%);
+    width: 80%;
+    max-width: 200px;
+    text-align: center;
+  }
+  
+  /* Make sure copyright and developer info are properly positioned */
+  .rights, .desarollo {
+    position: relative;
+    bottom: right auto;
+    width: 100%;
+    text-align: center;
+    padding: 5px 10px;
+    margin-top: 15px;
+  }
+  
+  .desarollo {
+    margin-top: 5px;
+  }
+}
+
+/* Additional fixes for very small screens */
+@media screen and (max-width: 480px) {
+  footer {
+    padding-top: 200px; /* Even more space on very small screens */
+  }
+  
+  /* Make links more touchable on small screens */
+  footer .insta a, 
+  footer .youtube a,  
+  footer .whatsapp a, 
+  footer .correo a, 
+  footer .facebook a {
+    padding: 10px;
+    margin: 5px auto;
+    font-size: 14px;
+    display: inline-block;
+  }
+  
+  /* Ensure icons are visible and properly sized */
+  footer .insta a i, 
+  footer .youtube a i, 
+  footer .whatsapp a i, 
+  footer .correo a i, 
+  footer .facebook a i {
+    font-size: 16px;
+    margin-right: 6px;
+  }
+}
+
+/* Fix for social media links center alignment */
+
+.social-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;
+}
+
+.social-links > div {
+    display: inline-block;
+    margin: 5px;
+}
+
+footer .insta a,
+footer .youtube a,
+footer .insta a i.fa-instagram,
+footer .youtube a i.fa-youtube,
+
+/* Instagram icon specific gradient */
+footer .insta a i.fa-instagram {
+    background: white;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* YouTube icon color */
+footer .youtube a i.fa-youtube {
+    color: #ffffff;
+}
+
+
+
+/* Social media icon hover effects */
+footer .insta a:hover i.fa-instagram,
+footer .youtube a:hover i.fa-youtube,
+footer .insta a:hover,
+footer .youtube a:hover,
+footer .insta a,
+footer .youtube a,
+footer .whatsapp a,
+footer .correo a,
+footer .facebook a {
+    color: white;
+    text-decoration: none;
+    font-family: 'OpenSans', sans-serif;
+    font-size: 12px;
+    padding: 8px 12px;
+    margin: 0;
+    transition: transform 0.3s ease;
+    display: inline-block;
+}
+
+.social-links a:hover {
+    transform: scale(1.1);
+}
+
+/* Ensure the footer layout is clean */
+.footer-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 20px;
+    margin-bottom: 60px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.footer-center {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.footer-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+
+
+.social-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* Logo styling - positioned on the left */
+.logofooter img {
+    width: 80px;
+    height: 80px;
+    max-width: 80px;
+    border-radius: 60%;
+    box-shadow: 0 0 10px rgba(173, 47, 47, 0.1);
+    margin-bottom: 15px;
+    font-size: 12px;
+    padding: 8px 12px;
+    transition: transform 0.3s ease;
+    display: inline-block;
+    margin: 0;
+}
+
+footer .social-links a:hover {
+    transform: scale(1.1);
+}
+#slogan{
+    font-family: 'PlaywriteUSTrad';
+    font-size: 12px;
+    color: white;
+    margin-top: 10px;
+    text-align: left;
+}
+
+/* Copyright positioned at bottom left */
+.rights {
+    position: absolute;
+    bottom: 5px;
+    left: 20px;
+    font-size: 10px;
+    width: 60%;
+    text-align: left;
+    font-family: 'PlaywriteUSTrad'; /* Updated font-family */
+}
+
+
+/* Media query for responsive footer */
+@media screen and (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .footer-left {
+        width: 100%;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+    
+    .footer-center {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    
+    .rights {
+        position: relative;
+        text-align: center;
+        padding-top: 15px;
+    }
+}
+
+footer .insta a{
+    color: rgb(243, 243, 243);
+    text-decoration: none;
+    font-family: 'RobotoMono', monospace;
+    font-size: 12px;
+    padding: 7px 20px;
+    margin-top: auto;
+    transform: scale(1);
+    transition: transform 0.3s ease;
+}
+
+footer .youtube a{
+    color: rgb(223, 0, 0);
+    text-decoration: none;
+    font-family: 'RobotoMono', monospace;
+    font-size: 12px;
+    padding: 7px 20px;
+    margin-top: auto;
+    transform: scale(1);
+    transition: transform 0.3s ease;
+}
+
+
+footer .whatsapp a{
+    color: white;
+    text-decoration: none;
+    font-family: 'RobotoMono', monospace;
+    font-size: 12px;
+    padding: 4px 30px; /* Increased right padding from 20px to 30px */
+    margin-top: 10px;
+    margin-right: 15px; /* Added right margin for separation */
+    transform: scale(1);
+    transition: transform 0.3s ease;
+    display: inline-block; /* Added to ensure margins work properly */
+}
+footer .correo a{
+    color: white;
+    text-decoration: none;
+    font-family: 'RobotoMono', monospace;
+    font-size: 12px;
+    padding: 10px 30px; /* Increased right padding from 20px to 30px */
+    margin-top: auto;
+    margin-right: 15px; /* Added right margin for separation */
+    transform: scale(1);
+    transition: transform 0.3s ease;
+    display: inline-block; /* Added to ensure margins work properly */
+}
+
+footer .facebook a{
+    color: white;
+    text-decoration: none;
+    font-family: 'RobotoMono', monospace;
+    font-size: 12px;
+    padding: 10px 30px; /* Increased right padding from 20px to 30px */
+    margin-top: auto;
+    transform: scale(1);
+    transition: transform 0.3s ease;
+    display: inline-block; /* Added to ensure margins work properly */
+}
+
+/* Fix for the logo in the footer */
+.logofooter img{
+    width: 80px;
+    height: 80px;
+    max-width: 80px;
+    border-radius: 60%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    transition: transform 0.3s ease;
+    object-fit: cover;
+}
+
+.contactofooter{
+    background-color: #E1CFBA;
+    color: white;
+    border-radius: 20px;
+    padding: 10px 20px;
+    font-family: 'RobotoMono', monospace;
+    font-size: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 45px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer; /* Adds a pointer cursor on hover */
+}
+
+.contactofooter:hover {
+    background-color: #5a888d; /* Changes background on hover */
+    transform: scale(1.05); /* Slightly enlarges the button */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* Enhances the shadow */
+}
+
+
+
+.insta{
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    font-family: 'RobotoMono', monospace;
+    font-size: 12px;
+    padding: 10px 20px;
+    margin-top: auto;
+    transform: scale(1);
+    transition: transform 0.3s ease;
+}
+
+.youtube{
+    color: rgb(246, 14, 14);
+    text-decoration: none;
+    font-family: 'RobotoMono', monospace;
+    font-size: 12px;
+    padding: 10px 20px;
+}

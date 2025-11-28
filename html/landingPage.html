@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atacabco</title>
+    <!-- Add Favicon -->
+    <link rel="shortcut icon" href="./images/favicon.png" type="image/x-icon">
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Inter Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <!-- Load Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        /* Define Custom Colors & Styles to match the screenshot */
+        :root {
+            --color-main-bg: #f7f5f2; /* Very light, slightly warm gray background for the body */
+            --color-hero-bg: #e8d8c9; /* Top light beige/tan */
+            --color-card-bg: #dbc2a8; /* Darker beige for cards/placeholders */
+            --color-gold-button: #dbc2a8; /* Gold/Mustard color */
+            --color-line: #c1b19e; /* Color for the timeline connecting line */
+            --color-text: #333333;
+            --color-footer-bg: #c1b19e; /* Darker gold/mustard background for the footer */
+        }
+
+        body {
+            background-color: var(--color-main-bg);
+            color: var(--color-text);
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh;
+        }
+
+        /* Hero Section Specifics */
+        .hero-section {
+            background-color: var(--color-hero-bg);
+        }
+
+        /* Gold Button Style */
+        .gold-button {
+            background-color: #fce7cf; /* Lighter background for the button itself */
+            color: var(--color-gold-button);
+            border: 1px solid var(--color-gold-button);
+            padding: 4px 12px;
+            font-size: 0.75rem;
+            border-radius: 9999px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            transition: all 0.2s ease;
+        }
+        .gold-button:hover {
+            background-color: #f7d8c6;
+            transform: translateY(-1px);
+        }
+
+        .gold-solid-button {
+            background-color: var(--color-gold-button);
+            color: white;
+            padding: 8px 24px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            border-radius: 9999px;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .gold-solid-button:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+
+        /* Timeline Styling */
+        .timeline-container {
+            position: relative;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin-top: 3rem;
+            padding-bottom: 4rem;
+        }
+
+        /* The horizontal connecting line */
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 10%;
+            right: 10%;
+            height: 2px;
+            background-color: var(--color-line);
+            transform: translateY(-50%);
+            z-index: 0;
+            /* Hide line on very small screens if necessary for mobile stacking, though we will keep it for this design */
+        }
+
+        .timeline-item {
+            position: relative;
+            z-index: 10;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .timeline-item:hover {
+            transform: scale(1.1);
+        }
+
+        .timeline-image {
+            width: 80px;
+            height: 80px;
+            min-width: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid white; /* White border for emphasis */
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        /* General Card/Placeholder Styling */
+        .placeholder-card {
+            background-color: var(--color-card-bg);
+            border-radius: 1.5rem; /* Heavily rounded corners */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+        .placeholder-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Swirl/Arrow Icon Placeholder */
+        .swirl-icon {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            border: 2px dashed var(--color-gold-button);
+            margin-left: 8px;
+            transform: rotate(-30deg);
+        }
+    </style>
+</head>
+<body class="mx-auto max-w-7xl">
+
+    <!-- Top Navigation Bar -->
+    <nav class="sticky top-0 z-20 bg-white shadow-md rounded-b-xl px-12 py-3 flex items-center justify-between">
+        <div class="hidden lg:flex items-center space-x-8 text-l font-medium">
+            <a href="#" class="text-gray-600 hover:text-gray-900 transition-colors">Inicio</a>
+            
+            <!-- Productos Dropdown Menu -->
+            <div class="relative group">
+                <a href="#" class="text-gray-600 hover:text-gray-900 transition-colors block py-2">Productos</a> 
+                
+                <!-- Dropdown Content (Shown on hover for desktop) -->
+                <div class="absolute hidden group-hover:block mt-1 w-48 rounded-xl shadow-xl z-30" 
+                     style="background-color: var(--color-hero-bg);">
+                    
+                    <div class="py-2 text-base text-center font-medium text-gray-800">
+                        <a href="./alimentos.html" class="block px-4 py-2 hover:bg-white/50 rounded-t-xl transition-colors">Alimentos</a>
+                        <hr class="my-1 mx-4 border-t border-[var(--color-line)]">
+                        <a href="./artesanias.html" class="block px-4 py-2 hover:bg-white/50 transition-colors">Artesanias</a>
+                        <hr class="my-1 mx-4 border-t border-[var(--color-line)]">
+                        <a href="./herbolaria.html" class="block px-4 py-2 hover:bg-white/50 rounded-b-xl transition-colors">Herbolaria</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="flex items-center justify-center flex-1 lg:flex-none">
+            <!-- Logo Placeholder (Small Green Leaf) -->
+            <div class="flex flex-col items-center">
+                <div class="w-12 h-12 rounded-full  flex items-center justify-center text-white text-lg font-bold  shadow-lg">
+                <img src="./images/logo_atacabco.png" alt="">
+                </div>
+          
+            </div>
+        </div>
+
+        <div class="hidden lg:flex items-center space-x-8 text-l font-medium">
+            <a href="./sobre.html" class="text-gray-600 hover:text-gray-900 transition-colors">Sobre Atacabco</a>
+            <a href="./servicios.html" class="text-gray-600 hover:text-gray-900 transition-colors">Mis Servicios</a>
+            <a href="https://wa.me/+573506949843" class="gold-solid-button" target="_blank">Contáctame</a>
+            
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <button class="lg:hidden text-gray-700 p-2 rounded-lg hover:bg-gray-100 transition-colors">
+            <!-- Icon placeholder -->
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+        </button>
+    </nav>
+
+
+    <!-- Hero Section (Beige Background) -->
+    <header class="hero-section p-8 sm:p-12 rounded-b-3xl mt-4">
+        <div class="text-center space-y-3">
+            <h1 class="text-xl sm:text-2xl font-light text-white-700"></h1>
+            <p class="text-3xl sm:text-4xl font-semibold text-white-800">Una frase tuya</p>
+            <div class="pt-2">
+                <button class="gold-button text-white font-semibold" onclick="location.href='./sobre.html';">Explora más sobre atacabco</button>
+            </div>
+        </div>
+
+        <!-- Timeline / Carousel -->
+        <div class="timeline-container relative px-4 sm:px-10">
+            <!-- Timeline Item 1 -->
+            <div class="timeline-item">
+                <img src="./images/cacao.webp" alt="Product 1" class="timeline-image">
+            </div>
+
+            <!-- Timeline Item 2 -->
+            <div class="timeline-item">
+                <img src="./images/mer.webp" alt="Product 2" class="timeline-image">
+            </div>
+
+            <!-- Timeline Item 3 -->
+            <div class="timeline-item">
+                <img src="./images/cacao2.webp" alt="Product 3" class="timeline-image">
+            </div>
+        </div>
+    </header>
+
+    <main class="p-8 sm:p-12 space-y-16">
+
+        <!-- About/Content Section -->
+        <section class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+            <!-- Left Content -->
+            <div class="space-y-6">
+                <h2 class="text-4xl font-bold text-yellow-800">Hola Soy Anna,</h2>
+                <p class="text-gray-600 leading-relaxed max-w-lg">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </p>
+                <a href="./sobre.html" class="inline-flex items-center text-sm font-semibold text-gray-700 hover:text-gray-900 transition-colors">
+                    Aprende más 
+                    <span class="swirl-icon ml-2"></span>
+                </a>
+            </div>
+
+            <!-- Right Image Placeholder -->
+            <div class="about-image-placeholder placeholder-card h-[300px] lg:h-[380px] w-full p-8 text-lg font-light text-gray-600 flex items-center justify-center">
+                una imagen tuya
+            </div>
+        </section>
+
+        <!-- Product Section -->
+        <section class="space-y-6">
+            <h2 class="text-4xl font-bold text-yellow-800">Productos de Atacabco</h2>
+
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
+                <!-- Product Card 1 -->
+                <div class="placeholder-card h-[250px] w-full min-w-[150px]">
+                    <img src="./images/cacao2.webp" alt="Product 1" class="w-full h-full object-cover rounded-xl">
+                </div>
+                <!-- Product Card 2 -->
+                <div class="placeholder-card h-[250px] w-full min-w-[150px]">
+                    <img src="./images/cacao.webp" alt="Product 1" class="w-full h-full object-cover rounded-xl">
+                </div>
+                <!-- Product Card 3 -->
+                <div class="placeholder-card h-[250px] w-full min-w-[150px]">
+                    <img src="./images/mer.webp" alt="Product 1" class="w-full h-full object-cover rounded-xl">
+                </div>
+                <!-- Product Card 4 (Hidden on small screens) -->
+                <div class="placeholder-card h-[250px] w-full min-w-[150px]">
+                    <img src="./images/cacao3.webp" alt="Product 1" class="w-full h-full object-cover rounded-xl">
+                </div>
+                <!-- Product Card 5 (Hidden on small screens) -->
+                <div class="placeholder-card h-[250px] w-full min-w-[150px]">
+                    <img src="./images/cacao4.webp" alt="Product 1" class="w-full h-full object-cover rounded-xl">
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="space-y-6">
+            <h2 class="text-4xl font-bold text-yellow-800">Mis Servicios</h2>
+
+            <!-- Service Placeholder Card -->
+            <div class="service-placeholder placeholder-card p-12 h-[200px]">
+                <p class="text-gray-700 font-medium">
+                    
+                </p>
+            </div>
+        </section>
+
+    </main>
+    
+    <!-- Footer Section (Dark Gold/Mustard Background) -->
+    <footer class="bg-[var(--color-footer-bg)] text-white p-8 sm:p-12 mt-16">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+            
+            <!-- Left Column: Social Icons -->
+            <div class="flex flex-col space-y-3 text-l" style="font-family: 'Inter', sans-serif;"> 
+                <a href="https://www.instagram.com/atacabco/" target="_blank" class="hover:opacity-80 transition-opacity">
+                    <i class="fab fa-instagram"></i> Instagram
+                </a>
+                <a href="https://wa.me/+573506949843" target="_blank" class="hover:opacity-80 transition-opacity">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </a>
+                <a href="mailto:atacabco@gmail.com" target="_blank" class="hover:opacity-80 transition-opacity">
+                    <i class="far fa-envelope"></i> Email
+                </a>
+                <a href="https://www.youtube.com/@annamariamunozgiraldo1873" target="_blank" class="hover:opacity-80 transition-opacity">
+                    <i class="fab fa-youtube"></i> YouTube
+                </a>
+            </div> 
+
+           
+            <div class="text-center text-xs font-light space-y-2 order-3 md:order-2 col-span-1 md:col-span-1" 
+                 style="font-family: 'Inter', sans-serif; margin-top: auto; padding-bottom: 10px;">
+                <p>© 2026 Atacabco. Todos los derechos reservados.</p>
+                <p>&copy; Desarollado Por Sara Hoyos Arango Contactar por whatsapp +573135312425</p>
+            </div>
+
+            <!-- Right Column: Logo and Call to Action -->
+            <div class="flex flex-col items-center md:items-end space-y-5 order-4 md:order-3 col-span-2 md:col-span-1">
+                <div class="flex flex-col items-center md:items-end">
+                    <!-- Larger Logo Placeholder -->
+                    <div class="w-16 h-16 rounded-full bg-white-600 flex items-center justify-center align-left shadow-lg">
+                       <img src="./images/logo_atacabco.png" alt="logo">
+                    </div>
+                    <p class="text-xl  mt-2" style="font-family: 'PlaywriteUSTrad';">Uno-Tejiendo bien</p>
+                </div>
+                <button class="gold-solid-button font-semibold py-2 px-6 rounded-full shadow-lg hover:bg-grey transition-colors">
+                    <a href="https://wa.me/+573506949843?text=Hola%20Saludos!%20Me%20interesa%20saber mas %20de%20tus servicios." target="_blank">Contacte Atacabco</a>
+                </button>
+            </div>
+
+        </div>
+    </footer>
+
+</body>
+</html>
